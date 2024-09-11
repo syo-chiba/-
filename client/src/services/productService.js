@@ -1,19 +1,29 @@
-import axios from 'axios';
+// client/src/services/productService.js
+import api from './api'; // Axiosインスタンスをインポート
 
-const API_URL = '/api/products';
-
+// 商品一覧を取得
 export const getProducts = () => {
-  return axios.get(API_URL);
+  return api.get('/products');
 };
 
+// 商品をIDで取得
+export const getProductById = (id) => {
+  return api.get(`/products/${id}`);
+};
+
+// 商品を追加
 export const addProduct = (product) => {
-  return axios.post(API_URL, product);
+  return api.post('/products', product);
 };
 
-export const updateProduct = (id, updatedProduct) => {
-  return axios.put(`${API_URL}/${id}`, updatedProduct);
+// 在庫が少ない商品を取得
+export const getLowStockProducts = () => {
+  return api.get('/products/low-stock');
 };
 
-export const deleteProduct = (id) => {
-  return axios.delete(`${API_URL}/${id}`);
+export default {
+  getProducts,
+  getProductById,
+  addProduct,
+  getLowStockProducts,
 };

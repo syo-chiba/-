@@ -1,10 +1,11 @@
+// client/src/pages/Dashboard.js
 import React from 'react';
-import ProductList from '../components/ProductList';
+import ProductList from '../components/ProductList'; // 商品リストコンポーネント
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>在庫ダッシュボード</h1>
+      <h2>在庫ダッシュボード</h2>
       <ProductList />
     </div>
   );
