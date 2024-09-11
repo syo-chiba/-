@@ -32,3 +32,14 @@ exports.deleteProduct = (req, res) => {
     else res.send({ message: 'Product was deleted successfully!' });
   });
 };
+
+// 在庫アラート用（在庫が50個以下の商品を取得）
+exports.getLowStockProducts = (req, res) => {
+  Product.getLowStock((err, data) => {
+    if (err) {
+      res.status(500).send({ message: err.message });
+    } else {
+      res.send(data);
+    }
+  });
+};

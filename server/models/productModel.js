@@ -51,4 +51,15 @@ Product.remove = (id, result) => {
   });
 };
 
+// 在庫が50個以下の商品を取得するSQL
+Product.getLowStock = (result) => {
+  db.query('SELECT * FROM products WHERE stock <= 50', (err, res) => {
+    if (err) {
+      result(err, null);
+      return;
+    }
+    result(null, res);
+  });
+};
+
 module.exports = Product;
