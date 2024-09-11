@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api'; // api.jsをインポート
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('/api/products')
+    // api.jsを通じてAPIリクエストを送る
+    api
+      .get('/products')
       .then((response) => setProducts(response.data))
-      .catch((error) => console.error(error));
+      .catch((error) => console.error('商品情報の取得に失敗しました:', error));
   }, []);
 
   return (
