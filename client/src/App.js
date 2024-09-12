@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import ProductDetail from './pages/ProductDetail';
 import ProductForm from './components/ProductForm';
 import StockAlert from './components/StockAlert'; // 在庫アラートをインポート
 import './App.css'; // スタイル用のCSSファイルをインポート
